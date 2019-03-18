@@ -1,8 +1,10 @@
 # A minimal lighttpd Docker image
 
+The time has come to start exploring alternatives to nginx for those servers only serving static files (e.g. SPA frontends) or acting as reverse proxies.
+
 lighttpd is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible. It was originally written by Jan Kneschke as a proof-of-concept of the c10k problem – how to handle 10,000 connections in parallel on one server, but has gained worldwide popularity. Its name is a portmanteau of "light" and "httpd".
 
-This Docker image is 5.47 MB in size. It includes the bare minimum for the statically linked server to run and includes the following modules:
+This experimental Docker image is **5.47 MB** in size. It includes the bare minimum for the statically linked server to run and includes the following modules:
 
 ```
 mod_auth
