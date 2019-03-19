@@ -18,6 +18,16 @@ RUN chown -R lighttpd:lighttpd /var/log/lighttpd /srv/www /var/lib/lighttpd /etc
 ADD resources/lighttpd.conf /etc/lighttpd/lighttpd.conf
 ADD resources/conf.d/*.conf /etc/lighttpd/conf.d/
 ADD resources/modules.conf /etc/lighttpd/modules.conf
+# strip debug symbols off files we are going to include in the final build
+RUN strip -s /lib64/ld-linux-x86-64.so.2
+RUN strip -s /lib/x86_64-linux-gnu/libcrypt.so.1
+RUN strip -s /lib/x86_64-linux-gnu/libc.so.6
+RUN strip -s /lib/x86_64-linux-gnu/libbz2.so.1.0
+RUn strip -s /lib/x86_64-linux-gnu/libz.so.1
+RUN strip -s /lib/x86_64-linux-gnu/libpcre.so.3
+RUN strip -s /lib/x86_64-linux-gnu/libcrypt.so.1
+RUN strip -s /lib/x86_64-linux-gnu/libpthread.so.0
+RUN strip -s /usr/local/sbin/lighttpd
 # ok done building the base image
 
 
