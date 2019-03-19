@@ -4,7 +4,7 @@ The time has come to start exploring alternatives to nginx for those servers onl
 
 lighttpd is an open-source web server optimized for speed-critical environments while remaining standards-compliant, secure and flexible. It was originally written by Jan Kneschke as a proof-of-concept of the c10k problem – how to handle 10,000 connections in parallel on one server, but has gained worldwide popularity. Its name is a portmanteau of "light" and "httpd".
 
-This experimental Docker image is **5.47 MB** in size. It includes the bare minimum for the statically linked server to run and includes the following modules:
+This experimental Docker image is **3.43 MB** in size. It includes the bare minimum for the statically linked server to run and includes the following modules:
 
 ```
 mod_auth
@@ -43,7 +43,7 @@ docker build -t lighttpd:test .
 Start the Docker image and publish port 80:
 
 ```
-docker run --detach -p 80:80 --name lighttpd lighttpd:test
+docker run --detach -p 80:80 --rm --name lighttpd lighttpd:test
 ```
 
 Check that the server responds correctly:
