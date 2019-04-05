@@ -50,5 +50,8 @@ COPY --from=build /srv/www/htdocs /srv/www/htdocs
 COPY --from=build /var/lib/lighttpd /var/lib/lighttpd
 # lighttpd binary
 COPY --from=build /usr/local/sbin/lighttpd /usr/local/sbin/lighttpd
+
+EXPOSE 80
+
 # start lighttpd in non daemon mode
 CMD ["/usr/local/sbin/lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
